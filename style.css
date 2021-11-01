@@ -1,0 +1,122 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #2c2c2c;
+}
+
+#Cabeçalho {
+    background: #9657a5;
+    width: 375px;
+    height: 66px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+h1 {
+    color: #f4f4f4;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#Caixa-Principal {
+    background: #e5e5e5;
+    width: 375px;
+    padding: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paragrafo {
+    margin-bottom: 6px;
+    color: #777777;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.select {
+    background: #ffffff;
+    border: 1px solid #bbbbbb;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 327px;
+    height: 48px;
+    left: 24px;
+    top: 113px;
+    margin-bottom: 23px;
+    outline: none;
+    cursor: pointer;
+    padding-left: 16px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#input {
+    height: 48px;
+    width: 327px;
+    left: 24px;
+    top: 302px;
+    border-radius: 4px;
+    background: #ffffff;
+    border: 1px solid #bbbbbb;
+    margin-bottom: 23px;
+    outline: none;
+    cursor: pointer;
+    padding-left: 16px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#botão {
+    height: 48px;
+    width: 327px;
+    left: 24px;
+    top: 374px;
+    border-radius: 25px;
+    background: #cdd728;
+    display: block;
+    cursor: pointer;
+    border: none;
+    margin-bottom: 23px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f4f4f4;
+    outline: none;
+}
+
+#botão:active {
+    opacity: 0.5;
+}
+
+#caixa-interna {
+    border: 1px solid #9657a5;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.caixa-menor {
+    text-align: center;
+}
+
+#seta {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.paragrafo-negrito {
+    font-weight: bold;
+    font-size: 20px;
+}
