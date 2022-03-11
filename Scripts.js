@@ -1,60 +1,43 @@
+const button = document.getElementById('convert-button');
+const select = document.getElementById('currency-select');
 
-let dolar = 5.21
-let euro = 6.18
+const convertValues = async () => {
+    const inputReais = document.getElementById('input-real').value;
+    const realValueText = document.getElementById('real-value-text');
+    const currencyValueText = document.getElementById('currency-value-text');
+    realValueText.innerHTML = inputReais;
 
-let botão = document.getElementById("botão")
-let select = document.getElementById("select-moedas")
+    const data = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL').then(response => response.json());
 
+    const dolar = data.USDBRL.high;
+    const euro = data.EURBRL.high;
 
+    realValueText.innerHTML = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(inputReais);
 
-//Essa função é responsável por trocar a bandeira e o nome das moedas
-
-async function convertermoedas() {
-
-    let moedas = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL").then(function (resposta){
-        return resposta.json() 
-    })
-
-    let dolar = moedas.USDBRL.high
-    let euro = moedas.EURBRL.high
-
-    let inputvalorEMreais = Number(document.getElementById("input").value)
-    let inputmoedas = document.getElementById("input-moedas")
-    let textoReal = document.getElementById("texto-real")
-
-    if (select.value === "US$ Dólar Americano") {
-        let valorEMdolares = inputvalorEMreais / dolar
-        inputmoedas.innerHTML = valorEMdolares.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+    if (select.value === 'dolar-americano') {
+        currencyValueText.innerHTML = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(inputReais / dolar);
     }
 
-    if (select.value === "€ Euro") {
-        let valorEMeuros = inputvalorEMreais / euro
-        inputmoedas.innerHTML = valorEMeuros.toLocaleString("de-DE", { style: "currency", currency: "EUR" })
+    if (select.value === 'euro') {
+        currencyValueText.innerHTML = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(inputReais / euro);
+    }
+};
 
+changeCurrency = () => {
+    const currencyName = document.getElementById('currency-name');
+    const currencyImg = document.getElementById('currency-img');
+
+    if (select.value === 'dolar-americano') {
+        currencyName.innerHTML = 'Dólar Americano';
+        currencyImg.src = './img/Dólar.png';
     }
 
-
-    textoReal.innerHTML = inputvalorEMreais.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-}
-
-function trocaDeMoeda() {
-
-    let textomoeda = document.getElementById("texto-moeda")
-    let bandeiraMoedas = document.getElementById("bandeira-moedas")
-
-    if (select.value === "US$ Dólar Americano") {
-        textomoeda.innerHTML = "Dólar Americano"
-        bandeiraMoedas.src = "./img/Dólar.png"
+    if (select.value === 'euro') {
+        currencyName.innerHTML = 'Euro';
+        currencyImg.src = './img/Euro.png';
     }
+    convertValues();
+};
 
-    if (select.value === "€ Euro") {
-        textomoeda.innerHTML = "Euro"
-        bandeiraMoedas.src = "./img/Euro.png"
-    }
-
-    convertermoedas()
-
-}
-
-botão.addEventListener("click", convertermoedas)
-select.addEventListener("change", trocaDeMoeda)
+button.addEventListener('click', convertValues);
+select.addEventListener('change', changeCurrency);

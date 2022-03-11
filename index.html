@@ -12,43 +12,50 @@
     </head>
 
     <body>
-        <div id="Cabeçalho">
-            <h1>Conversor de Moedas</h1>
-        </div>
+        <div class="container">
+            <header>
+                <h1>Conversor de Moedas</h1>
+            </header>
 
-        <div id="Caixa-Principal">
-            <p class="paragrafo">Converter <b>De</b></p>
-            <select class="select">
-                <option>R$ Real Brasileiro</option>
-                <option>US$ Dólar Americano</option>
-                <option>€ Euro</option>
-            </select>
+            <main>
+                <label for="">
+                    Converter <b>de</b>
+                    <select name="" id="">
+                        <option value="real">R$ Real Brasileiro</option>
+                    </select>
+                </label>
 
-            <p class="paragrafo">Converter <b>Para</b></p>
-            <select class="select" id="select-moedas">
-                <option>US$ Dólar Americano</option>
-                <option>€ Euro</option>
-            </select>
+                <label for="">
+                    Converter <b>para</b>
+                    <select name="" id="currency-select">
+                        <option value="dolar-americano">US$ Dólar Americano</option>
+                        <option value="euro">€ Euro</option>
+                    </select>
+                </label>
 
-            <p class="paragrafo"><b>Valor</b></p>
-            <input id="input" placeholder="R$ 10.000,00" type="number" />
-            <button id="botão">Converter</button>
+                <label for="">
+                    Valor
+                    <input id="input-real" type="number" placeholder="R$ 10.000,00" />
+                </label>
 
-            <div id="caixa-interna">
-                <div class="caixa-menor">
-                    <img src="./img/Real.png" />
-                    <p class="paragrafo">Real</p>
-                    <p class="paragrafo-negrito" id="texto-real">R$ 10.000,00</p>
-                </div>
+                <button id="convert-button" type="button">Converter</button>
 
-                <img id="seta" src="./img/Seta.png" />
+                <section>
+                    <div class="currency-container">
+                        <img src="./img/Real.png" alt="simbolo-real" />
+                        <p class="currency-name">Real</p>
+                        <p class="currency-value" id="real-value-text">R$ 0,00</p>
+                    </div>
 
-                <div class="caixa-menor">
-                    <img id="bandeira-moedas" src="./img/Dólar.png" />
-                    <p class="paragrafo" id="texto-moeda">Dólar Americano</p>
-                    <p class="paragrafo-negrito" id="input-moedas">US$ 2.000,00</p>
-                </div>
-            </div>
+                    <img class="arrow-img" src="./img/Seta.png" alt="seta" />
+
+                    <div class="currency-container">
+                        <img src="./img/Dólar.png" id="currency-img" alt="simbolo-pais-de-conversão" />
+                        <p class="currency-name" id="currency-name">Dólar</p>
+                        <p class="currency-value" id="currency-value-text">US$ 0,00</p>
+                    </div>
+                </section>
+            </main>
         </div>
     </body>
 
